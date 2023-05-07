@@ -3,7 +3,7 @@ const input = document.querySelector(".todo_input");
 const todo_container = document.querySelector(".todo_container");
 
 const startConf = () => {
-   // baslangic ayarlari
+   // start
    const todos = JSON.parse(localStorage.getItem("todos"));
    if (!todos) {
       localStorage.setItem("todos", JSON.stringify([]));
@@ -19,7 +19,7 @@ const addTodo = (e) => {
    
    const inputVal = input.value;
 
-   if (inputVal == '')  { // boş değer girilmeye çalışıyor ise hata veriyoruz
+   if (inputVal == '')  { // error
       input.style.border = '1px solid tomato';
       setTimeout(() => {
          input.style.borderColor = 'transparent';
@@ -67,8 +67,8 @@ const completeTodo = (e) => {
 
 const saveTodo = (e) => {
    const todo = e.target.parentElement.parentElement;
-   const prevText = todo.firstChild.children[1].textContent; // değiştirilmeden önceki değer
-   const newText = todo.firstChild.children[2].value; // editlerken girdiğimiz yeni değer
+   const prevText = todo.firstChild.children[1].textContent;
+   const newText = todo.firstChild.children[2].value; 
 
    let todos = JSON.parse(localStorage.getItem("todos"));
    
@@ -78,9 +78,9 @@ const saveTodo = (e) => {
 
    localStorage.setItem("todos", JSON.stringify(todos));
 
-   todo.firstChild.children[1].textContent = newText;  // HTML üzerindeki değerini de değiştiriyoruz
+   todo.firstChild.children[1].textContent = newText;
 
-   todo.classList.remove("-edited"); // verdiğimiz classı kaldırıyoruz
+   todo.classList.remove("-edited"); // verdiyimiz class i silme
 }
 
 const editTodo = (e) => {
@@ -103,7 +103,7 @@ const addHTML = (todo) => {
    todoCb.type = "checkbox";
    todoCb.checked = todo.isCompleted; 
    todoCb.classList.add("todo_cb");
-   todoCb.addEventListener("click", completeTodo); // direkt olustururken veriyoruz event listenerlari
+   todoCb.addEventListener("click", completeTodo);
 
    const todoText = document.createElement("span");
    todoText.classList.add("todo_text");
@@ -119,12 +119,12 @@ const addHTML = (todo) => {
    const deleteBtn = document.createElement("button");
    deleteBtn.classList.add("todo_delete");
    deleteBtn.textContent = "Delete";
-   deleteBtn.addEventListener("click", deleteTodo); // direkt olustururken veriyoruz event listenerlari
+   deleteBtn.addEventListener("click", deleteTodo);
    
    const editBtn = document.createElement("button");
    editBtn.classList.add("todo_edit");
    editBtn.textContent = "Edit";
-   editBtn.addEventListener("click", editTodo); // direkt olustururken veriyoruz event listenerlari
+   editBtn.addEventListener("click", editTodo); 
    
    const saveBtn = document.createElement("button");
    saveBtn.classList.add("todo_save");

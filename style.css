@@ -25,7 +25,7 @@
     padding: 15px 20px;
     border-radius: 8px;
     margin-top: 32px;
-    background-color: antiquewhite;
+    background-color: rgb(148, 147, 147);
  }
  
  .todo_title {
@@ -66,7 +66,7 @@
     padding: 15px 20px;
     border-radius: 8px;
     margin-top: 16px;
-    background-color: antiquewhite;
+    background-color: rgb(148, 147, 147);
  }
  
  .todo {
@@ -104,7 +104,7 @@
  
  .todo_cb:checked ~ .todo_text {
     text-decoration: line-through;
-    color: gray;
+    background-color: gray;
  }
  
  .todo_right {
